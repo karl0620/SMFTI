@@ -36,6 +36,11 @@ Route::get('/Mahasiswa/Home', function () {
     return view('Mahasiswa\dashboardMhs');
 })->middleware('auth');
 
+Route::get('/Mahasiswa/Home/ListMahasiswa', function () {
+    $data_item = User::where('status', 'Mahasiswa')->get();
+    return view('Mahasiswa\listMhs', compact('data_item'));
+})->middleware('auth');
+
 Route::post('/Mahasiswa/Home', 'AuthMahasiswaController@login')->name('login');
 
 Route::post('/logoutMhs', 'AuthMahasiswaController@logout')->name('logout');
@@ -47,7 +52,8 @@ Route::post('/Mahasiswa/Home/BuatSurat/SuratTugas', 'SuratTugasMhsController@sub
 Route::post('/Mahasiswa/Home/BuatSurat/SuratIzinKp', 'SuratIjinKpMhsController@submitSurat')->name('submitSurat');
 
 Route::get('/Mahasiswa/Home/SuratTugas', function () {
-    return view('Mahasiswa\suratTugasMhs');
+    $data_nim = 3;
+    return view('Mahasiswa\suratTugasMhs', compact('data_nim'));
 })->middleware('auth');
 
 Route::get('/Mahasiswa/Home/SuratIzinKP', function () {
@@ -57,11 +63,11 @@ Route::get('/Mahasiswa/Home/SuratIzinKP', function () {
 //Dosen
 Route::get('/Dosen', function(){
     return view ('Dosen\loginDosen');
-});
+})->middleware('guest');
 
 Route::get('/Dosen/Home', function () {
     return view('Dosen\dashboardDosen');
-});
+})->middleware('auth');
 
 Route::post('/Dosen/Home', 'AuthDosenController@login')->name('login');
 
@@ -75,26 +81,33 @@ Route::get('/Dosen/Home/SuratTugas', function () {
     return view('Dosen\suratTugasDosen');
 })->middleware('auth');
 
+Route::post('/Dosen/Home/ListSuratTugas/{item:id}', 'SuratTugasDosenController@deleteDosen')->name('deleteDosen');
+
+Route::get('/Dosen/Home/ListSuratTugas/{item:id}/Edit', 'SuratTugasDosenController@formEditDosen')->name('formEditDosen');
+
+Route::post('/Dosen/Home/ListSuratTugas/{item:id}/Edit', 'SuratTugasDosenController@editDosen')->name('editDosen');
+
 //Admin
 Route::get('/Admin', function(){
     return view ('Admin\loginAdmin');
-});
+})->middleware('guest');
 
 Route::post('/Admin/Home', 'AuthAdminController@login')->name('login');
 
 Route::post('/logoutAdmin', 'AuthAdminController@logout')->name('logout');
 
-Route::get('/Admin/Home', function () {
-    // $suratA =
-    $suratB = SuratKegiatanMhs::count();
-    $suratC = SuratIjinKp::count();
-    $suratD = SuratTugasDosen::count();
-    // $suratE =
-    return view('Admin\listAdmin', compact('suratB', 'suratC', 'suratD'));
-});
+Route::get('/Admin/Home', 'AuthAdminController@dashboard')->name('dashboard')->middleware('auth');
 
 Route::get('/Admin/Home/SuratB', 'SuratTugasMhsController@listAdmin')->name('listAdmin')->middleware('auth');
 Route::get('/Admin/Home/SuratC', 'SuratIjinKpMhsController@listAdmin')->name('listAdmin')->middleware('auth');
 Route::get('/Admin/Home/SuratD', 'SuratTugasDosenController@listAdmin')->name('listAdmin')->middleware('auth');
 
 Route::get('/Admin/Home/SuratD/Detail/{item:id}', 'SuratTugasDosenController@detailAdmin')->name('detailAdmin')->middleware('auth');
+
+Route::get('/Admin/Home/ListSurat', 'AuthAdminController@listSurat')->name('listSurat')->middleware('auth');
+
+Route::get('/Admin/Home/BuatSurat', 'AuthAdminController@formBuatSurat')->name('formBuatSurat')->middleware('auth');
+
+Route::post('/Admin/Home/SuratD/Detail/{item:id}/Setuju', 'SuratTugasDosenController@prosesSurat')->name('prosesSurat');
+
+Route::post('/Admin/Home/SuratD/Detail/{item:id}/Tolak', 'SuratTugasDosenController@prosesSurat')->name('prosesSurat');

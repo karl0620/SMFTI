@@ -11,6 +11,9 @@ use Validator;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\SuratIjinKp;
+use App\Models\SuratKegiatanMhs;
+use App\Models\SuratTugasDosen;
 
 class AuthAdminController extends Controller
 {
@@ -47,5 +50,29 @@ class AuthAdminController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/Admin');
+    }
+
+    public function dashboard(){
+        $suratKM = SuratKegiatanMhs::where('status', 'Sedang Diproses')->count();
+        $suratIKP= SuratIjinKp::where('status', 'Sedang Diproses')->count();
+        $suratTD = SuratTugasDosen::where('status', 'Sedang Diproses')->count();
+        $notif = $suratKM + $suratIKP + $suratTD;
+        return view('Admin\dashboardAdmin', compact('notif'));
+    }
+
+    public function formBuatSurat(){
+        $suratKM = SuratKegiatanMhs::where('status', 'Sedang Diproses')->count();
+        $suratIKP= SuratIjinKp::where('status', 'Sedang Diproses')->count();
+        $suratTD = SuratTugasDosen::where('status', 'Sedang Diproses')->count();
+        $notif = $suratKM + $suratIKP + $suratTD;
+        return view('Admin\buatSurat', compact('notif'));
+    }
+
+    public function listSurat(){
+        $suratKM = SuratKegiatanMhs::where('status', 'Sedang Diproses')->count();
+        $suratIKP= SuratIjinKp::where('status', 'Sedang Diproses')->count();
+        $suratTD = SuratTugasDosen::where('status', 'Sedang Diproses')->count();
+        $notif = $suratKM + $suratIKP + $suratTD;
+        return view('Admin\listAdmin', compact('suratKM', 'suratIKP', 'suratTD', 'notif'));
     }
 }

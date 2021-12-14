@@ -8,7 +8,7 @@
                 <div class="col-md-7 col-lg-5">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="text-center mb-3">Portal Dosen</h3>
+                            <h3 class="text-center mb-3">Dosen</h3>
                             <form action="/Dosen/Home" method="post">
                                 @csrf
                                 <div class="form-group">
@@ -28,7 +28,7 @@
                                     <input type="checkbox" class="form-check-input" id="rmbMhs">
                                     <label class="form-check-label">Remember me</label>
                                 </div>
-                                <button type="submit" class="w-100 btn btn-primary btn-lg">Submit</button>
+                                <button type="submit" class="w-100 btn btn-primary btn-lg">Login</button>
                             </form>
                         </div>
                     </div>

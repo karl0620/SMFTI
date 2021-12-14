@@ -25,7 +25,7 @@
             <label for="exampleFormControlTextarea1" class="form-label">Keterangan</label>
             <textarea class="form-control" id="keterangan" name="keterangan" rows="3" required></textarea>
         </div>
-        <!-- <input type="hidden" id="status" name="status" value="Sedang Diproses" required> -->
+        <input type="hidden" id="status" name="status" required value="Sedang Diproses">
         <button type="sibmit" class="btn btn-primary">Submit</button>
     </form>
 @endsection

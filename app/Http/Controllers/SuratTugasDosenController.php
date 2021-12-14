@@ -43,4 +43,39 @@ class SuratTugasDosenController extends Controller
         $data_user = User::where('nim', $item->nama)->get();
         return view('Admin\detailSuratD', compact('item', 'data_user'));
     }
+
+    public function deleteDosen(SuratTugasDosen $item){
+        SuratTugasDosen::destroy($item->id);
+        return redirect('Dosen/Home/ListSuratTugas')->with('success', 'Surat Berhasil Dihapus!');
+    }
+
+    public function formEditDosen(SuratTugasDosen $item){
+        $data_user = User::where('nim', $item->nama)->get();
+        return view('Dosen\editSuratTugas', compact('item', 'data_user'));
+    }
+
+    public function editDosen(Request $request, SuratTugasDosen $item){
+        $validateData = $request->validate([
+            'nim' => 'required',
+            'name' => 'required',
+            'tglPelaksanaan' => 'required',
+            'lksKegiatan' => 'required',
+            'namaMitra' => 'required',
+            'keterangan' => 'required',
+            'status' => 'required',
+        ]);
+
+        SuratTugasDosen::where('id', $item->id)->update($validateData);
+
+        return redirect('/Dosen/Home/ListSuratTugas');
+    }
+
+    public function prosesSurat(Request $request, SuratTugasDosen $item){
+        $validateData = $request->validate([
+            'status' => 'required',
+        ]);
+        SuratTugasDosen::where('id', $item->id)->update($validateData);
+
+        return redirect('/Admin/Home/SuratD');
+    }
 }

@@ -7,8 +7,12 @@
 @section('isi')
     <form action="/Mahasiswa/Home/BuatSurat/SuratTugas" method="post">
         @csrf
-        <input type="hidden" id="nim" name="nim" required value="{{ auth()->user()->nim }}">
-        <input type="hidden" id="name" name="name" required value="{{ auth()->user()->name }}">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" id="nim" name="nim[]" required value="{{ auth()->user()->nim }}">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" id="name" name="name[]" required value="{{ auth()->user()->name }}" disabled>
+            <button class="btn btn-outline-Success" type="button" id="button-addon2">Add</button>
+        </div>
+        <div id="extra-nim"></div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Tujuan Surat</label>
             <input type="date" class="form-control" id="tujuanSurat" name="tujuanSurat" required>

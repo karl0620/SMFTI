@@ -1,13 +1,22 @@
 @extends('Admin\dashboardAdmin')
 
+
+@section('layout')
+        <h1>Review Surat</h1>
+        <div class="flex-row-reverse">
+            <a class="btn btn-primary" href="/Admin/Home/SuratD">Back</a>
+        </div>
+@endsection
+
 @section('isi')
 <div class="container">
+<div class="border-bottom">
 <div class="row">
         <div class="col-md-2">
           <div class="box box-widget widget-user-2">
             <div class="widget-user-header">
               <div class="widget-user-image">
-                <img src="img/33.UKDW.png" alt="User Avatar">
+                <img src="img/logoUKDW.png"/>
               </div>
             </div>
           </div>
@@ -32,7 +41,7 @@
     <div class="col-sm">
     <ul>
       <li>
-        <h3> NIK  : {{ $item['nama'] }}</h3><!--Nik-->
+        <h3> NIK  : {{ $item['nim'] }}</h3><!--Nik-->
       </li>
       <li>
         <h3> Nama : {{ $item['name'] }} </h3><!--Nama-->
@@ -49,12 +58,35 @@
     <br>
     </div>
     <div align="right">
-            <h2>24 Januari 2020<h2>
+            <h2>{{ $item['update_at'] }}<h2>
             <h2>Dekan,</h2><br><br><br><br><br><br>
             <h3><b><u>Restyandito, S.Kom., MSIS., Ph.D.</u></b></h3><!--Nama Pengirim-->
             <h3>NIK : 004 E 289</h3><!--NIK Pengirim-->
     </div>
   </div>
 </div>
+</div>
+<br>
+<h1>Proses Surat</h1>
+        <div class="flex-row-reverse">
+        <table>
+            <tr>
+                <td>
+                    <form action="/Admin/Home/SuratD/Detail/{{ $item['id'] }}/Setuju" method="post">
+                        @csrf
+                        <input type="hidden" id="status" name="status" required value="Surat Disetujui">
+                        <button type="submit" class="btn btn-success">Setujui</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/Admin/Home/SuratD/Detail/{{ $item['id'] }}/Tolak" method="post">
+                        @csrf
+                        <input type="hidden" id="status" name="status" required value="Surat Ditolak">
+                        <button type="sibmit" class="btn btn-danger">Tolak</button>
+                    </form>
+                </td>
+            </tr>
+            </table>
+        </div>
 </div>
 @endsection

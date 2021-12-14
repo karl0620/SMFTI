@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Carbon;
 
 class SuratTugasDosen extends Model
 {
@@ -25,7 +26,7 @@ class SuratTugasDosen extends Model
         'lksKegiatan',
         'namaMitra',
         'keterangan',
-        // 'status',
+        'status',
     ];
 
     protected $table = 'surat_tugas_dosen';
