@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSuratIjinKpTable extends Migration
+class CreateSuratTugasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateSuratIjinKpTable extends Migration
      */
     public function up()
     {
-        Schema::create('surat_ijin_kp', function (Blueprint $table) {
+        Schema::create('surat_tugas', function (Blueprint $table) {
             $table->id();
             $table->string('nim');
             $table->string('name');
-            $table->date('tujuanSurat');
+            $table->date('tglTugas');
+            $table->string('tugas');
             $table->string('namaMitra');
             $table->string('alamatMitra');
             $table->string('keterangan');
             $table->enum('status', ['Sedang Diproses', 'Surat Ditolak', 'Surat Disetujui']);
+            $table->enum('jenis', ['Kelompok', 'Individu', 'Kegiatan']);
             $table->timestamps();
         });
     }
@@ -33,6 +35,6 @@ class CreateSuratIjinKpTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('surat_ijin_kp');
+        Schema::dropIfExists('surat_tugas');
     }
 }

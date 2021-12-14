@@ -17,7 +17,8 @@ class CreateSuratKegiatanMhsTable extends Migration
             $table->id();
             $table->string('nim');
             $table->string('name');
-            $table->date('tujuanSurat');
+            $table->string('kegiatan');
+            $table->date('tanggalKegiatan');
             $table->string('namaMitra');
             $table->string('alamatMitra');
             $table->string('keterangan');

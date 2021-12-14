@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class SuratIjinKp extends Model
+class SuratTugas extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -21,12 +21,14 @@ class SuratIjinKp extends Model
     protected $fillable = [
         'nim',
         'name',
-        'tujuanSurat',
+        'tglTugas',
+        'tugas',
         'namaMitra',
         'alamatMitra',
         'keterangan',
         'status',
+        'jenis',
     ];
 
-    protected $table = 'surat_ijin_kp';
+    protected $table = 'surat_tugas';
 }

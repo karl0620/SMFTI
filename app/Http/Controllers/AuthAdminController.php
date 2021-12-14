@@ -51,28 +51,4 @@ class AuthAdminController extends Controller
 
         return redirect('/Admin');
     }
-
-    public function dashboard(){
-        $suratKM = SuratKegiatanMhs::where('status', 'Sedang Diproses')->count();
-        $suratIKP= SuratIjinKp::where('status', 'Sedang Diproses')->count();
-        $suratTD = SuratTugasDosen::where('status', 'Sedang Diproses')->count();
-        $notif = $suratKM + $suratIKP + $suratTD;
-        return view('Admin\dashboardAdmin', compact('notif'));
-    }
-
-    public function formBuatSurat(){
-        $suratKM = SuratKegiatanMhs::where('status', 'Sedang Diproses')->count();
-        $suratIKP= SuratIjinKp::where('status', 'Sedang Diproses')->count();
-        $suratTD = SuratTugasDosen::where('status', 'Sedang Diproses')->count();
-        $notif = $suratKM + $suratIKP + $suratTD;
-        return view('Admin\buatSurat', compact('notif'));
-    }
-
-    public function listSurat(){
-        $suratKM = SuratKegiatanMhs::where('status', 'Sedang Diproses')->count();
-        $suratIKP= SuratIjinKp::where('status', 'Sedang Diproses')->count();
-        $suratTD = SuratTugasDosen::where('status', 'Sedang Diproses')->count();
-        $notif = $suratKM + $suratIKP + $suratTD;
-        return view('Admin\listAdmin', compact('suratKM', 'suratIKP', 'suratTD', 'notif'));
-    }
 }

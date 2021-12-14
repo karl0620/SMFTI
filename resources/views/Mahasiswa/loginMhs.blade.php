@@ -6,7 +6,10 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-7 col-lg-5">
-                    <div class="card">
+                    <div class="card mb-3 border-dark">
+                        <div class="card-head bg-dark" align="center">
+                                <img src="img/SMFTI.png" width="270" height="70">
+                        </div>
                         <div class="card-body">
                             <h3 class="text-center mb-3">Mahasiswa</h3>
                             <form action="/Mahasiswa/Home" method="post">

@@ -1,6 +1,5 @@
 @extends('Admin\dashboardAdmin')
 
-
 @section('layout')
         <h1>Review Surat</h1>
         <div class="flex-row-reverse">
@@ -58,7 +57,7 @@
     <br>
     </div>
     <div align="right">
-            <h2>{{ $item['update_at'] }}<h2>
+            <h2>Yogyakarta, {{ date('d F Y') }}<h2>
             <h2>Dekan,</h2><br><br><br><br><br><br>
             <h3><b><u>Restyandito, S.Kom., MSIS., Ph.D.</u></b></h3><!--Nama Pengirim-->
             <h3>NIK : 004 E 289</h3><!--NIK Pengirim-->

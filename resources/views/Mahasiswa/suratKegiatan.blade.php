@@ -1,21 +1,26 @@
 @extends('Mahasiswa\dashboardMhs')
 
 @section('layout')
-    <h1>Surat Tugas Mahasiswa</h1>
+    <h1>Surat Kegiatan</h1>
+    <div class="flex-row-reverse">
+        <a class="btn btn-primary" href="/Mahasiswa/Home/BuatSurat">Back</a>
+    </div>
 @endsection
 
 @section('isi')
-    <form action="/Mahasiswa/Home/BuatSurat/SuratTugas" method="post">
+    <form action="/Mahasiswa/Home/BuatSurat/SuratKegiatan" method="post">
         @csrf
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" id="nim" name="nim[]" required value="{{ auth()->user()->nim }}">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" id="name" name="name[]" required value="{{ auth()->user()->name }}" disabled>
-            <button class="btn btn-outline-Success" type="button" id="button-addon2">Add</button>
+        <div class="control-group input-group mb-3">
+                <input type="text" class="form-control" id="nim" name="nim" required value="{{ auth()->user()->nim }}">
+                <input type="text" class="form-control" id="name" name="name" required value="{{ auth()->user()->name }}">
         </div>
-        <div id="extra-nim"></div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Tujuan Surat</label>
-            <input type="date" class="form-control" id="tujuanSurat" name="tujuanSurat" required>
+            <label for="exampleFormControlInput1" class="form-label">Tanggal Kegiatan</label>
+            <input type="date" class="form-control" id="tglTugas" name="tglTugas" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Kegiatan</label>
+            <input type="text" class="form-control" id="tugas" name="tugas" required>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nama Mitra</label>
@@ -30,6 +35,7 @@
             <textarea class="form-control" id="keterangan" name="keterangan" rows="3" required></textarea>
         </div>
         <input type="hidden" id="status" name="status" required value="Sedang Diproses">
+        <input type="hidden" id="jenis" name="jenis" required value="Kegiatan">
         <button type="sibmit" class="btn btn-primary">Submit</button>
     </form>
 @endsection

@@ -32,34 +32,17 @@
 
 @section('slidebar')
 <li class="nav-item">
-    <a class="nav-link" href="/Mahasiswa/Home/SuratTugas">
+    <a class="nav-link" href="/Mahasiswa/Home/BuatSurat">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
             Pengajuan Surat
     </a>
 </li>
-<!-- <li class="nav-item">
-    <a class="nav-link" href="/Mahasiswa/Home/SuratTugas">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-            Surat Tugas
-    </a>
-</li>
 <li class="nav-item">
-    <a class="nav-link" href="/Mahasiswa/Home/ListSuratTugas">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-            List Surat Tugas
-    </a>
-</li> -->
-<li class="nav-item">
-    <a class="nav-link" href="/Mahasiswa/Home/ListSuratIzinKp">
+    <a class="nav-link" href="/Mahasiswa/Home/ListSurat">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
             Surat Saya
     </a>
 </li>
-@endsection
-@section('akun')
-<a class="nav-link" href="/Mahasiswa/Home/ListMahasiswa"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-</svg> List Mahasiswa</a>
 @endsection
 
 @section('layout')
@@ -69,28 +52,38 @@
 @section('isi')
 <div class="container">
     <div class="row row-cols-1 row-cols-lg-3">
-      <div class="feature col">
-        <a class="badge bg-primary">
+        <div class="feature col">
+        <div class="badge bg-primary">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
         </svg>
-        <h3>Surat Kegiatan Individu</h3>
-        <h6>Total Surat Keseluruhan</h6>
-        <h6><span class="badge bg-danger">0</span></h6>
-        </a>
+        <h6>Surat Tugas Individu</h6>
+        <h3>Total Surat Keseluruhan</h3>
+        <h4><span class="badge bg-danger">0</span></h4>
+        </div>
       </div>
       <div class="feature col">
-        <a class="badge bg-primary">
+        <div class="badge bg-primary">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
             <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
             <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
             <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
         </svg>
-        <h3>Surat Kegiatan Kelompok</h3>
-        <h6>Total Surat Keseluruhan</h6>
-        <h6><span class="badge bg-danger">0</span></h6>
-        </a>
+        <h6>Surat Tugas Kelompok</h6>
+        <h3>Total Surat Keseluruhan</h3>
+        <h4><span class="badge bg-danger">0</span></h4>
+        </div>
+      </div>
+      <div class="feature col">
+        <div class="badge bg-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z"/>
+        </svg>
+        <h6>Surat Kegiatan</h6>
+        <h3>Total Surat Keseluruhan</h3>
+        <h4><span class="badge bg-danger">0</span></h4>
+        </div>
       </div>
     </div>
   </div>
