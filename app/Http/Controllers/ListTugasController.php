@@ -25,4 +25,9 @@ class ListTugasController extends Controller
         $suratKeg = SuratTugas::where('nim', 'LIKE', auth()->user()->nim.'%')->where('jenis', 'Kegiatan')->get();
         return view('Dosen\listSurat', compact('suratInd', 'suratKel', 'suratKeg'));
     }
+
+    public function showTgsAdm(){
+    $suratTugas = SuratTugas::where('status', 'Surat Disetujui')->get();
+    return view('Admin\ListSurat\listSuratTugas', compact('suratTugas'));
+    }
 }

@@ -12,19 +12,19 @@
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold">Surat Personalian</div>
-      <a href="#">Lihat daftar</a>
+      <a href="/Admin/Home/ListSurat/Personalian">Lihat daftar</a>
     </div>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
-      <div class="fw-bold">Surat Keterangan Dekan</div>
-      <a href="#">Lihat daftar</a>
+      <div class="fw-bold">Surat Keputusan Dekan</div>
+      <a href="/Admin/Home/ListSurat/SKDekan">Lihat daftar</a>
     </div>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold">Surat Tugas & Kegiatan</div>
-      <a href="#">Lihat daftar</a>
+      <a href="/Admin/Home/ListSurat/SuratTugas">Lihat daftar</a>
     </div>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -36,7 +36,7 @@
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold">Daftar Hadir</div>
-      <a href="#">Lihat daftar</a>
+      <a href="/Admin/Home/ListSurat/DaftarHadir">Lihat daftar</a>
     </div>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-start">

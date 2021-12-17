@@ -24,6 +24,7 @@ class CreateSuratTugasTable extends Migration
             $table->string('keterangan');
             $table->enum('status', ['Sedang Diproses', 'Surat Ditolak', 'Surat Disetujui']);
             $table->enum('jenis', ['Kelompok', 'Individu', 'Kegiatan']);
+            $table->string('ttd')->nullable();
             $table->timestamps();
         });
     }

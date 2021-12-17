@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\User;
 
-class SuratKegiatanMhs extends Model
+class BeritaAcara extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -20,14 +19,15 @@ class SuratKegiatanMhs extends Model
      * @var string[]
      */
     protected $fillable = [
-        'nim',
-        'name',
-        'tujuanSurat',
-        'namaMitra',
-        'alamatMitra',
-        'keterangan',
-        'status',
+        'jenis',
+        'tema',
+        'tanggal',
+        'tempat',
+        'pembicara',
+        'mitra',
+        'perwakilan',
+        'ttd',
     ];
 
-    protected $table = 'surat_kegiatan_mhs';
+    protected $table = 'berita_acara';
 }

@@ -11,9 +11,9 @@ use Validator;
 use Hash;
 use Session;
 use App\Models\User;
-use App\Models\SuratIjinKp;
-use App\Models\SuratKegiatanMhs;
-use App\Models\SuratTugasDosen;
+use App\Models\SuratTugas;
+use App\Models\SuratKeputusanDekan;
+use App\Models\DaftarHadir;
 
 class AuthAdminController extends Controller
 {
@@ -50,5 +50,14 @@ class AuthAdminController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/Admin');
+    }
+
+    public function dashboard(){
+        $skdekan = SuratKeputusanDekan::all()->count();
+        $daftar_hadir = DaftarHadir::all()->count();
+        $suratInd = SuratTugas::where('jenis', 'Individu')->where('status', 'Surat Disetujui')->count();
+        $suratKel = SuratTugas::where('jenis', 'Kelompok')->where('status', 'Surat Disetujui')->count();
+        $suratKeg = SuratTugas::where('jenis', 'Kegiatan')->where('status', 'Surat Disetujui')->count();
+        return view('Admin\homeAdmin', compact('skdekan', 'daftar_hadir', 'suratInd', 'suratKel', 'suratKeg'));
     }
 }

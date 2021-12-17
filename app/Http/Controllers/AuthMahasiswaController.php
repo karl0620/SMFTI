@@ -11,6 +11,7 @@ use Validator;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\SuratTugas;
 
 class AuthMahasiswaController extends Controller
 {
@@ -49,4 +50,10 @@ class AuthMahasiswaController extends Controller
         return redirect('/Mahasiswa');
     }
 
+    public function dashboard(){
+        $suratInd = SuratTugas::where('jenis', 'Individu')->where('status', 'Surat Disetujui')->count();
+        $suratKel = SuratTugas::where('jenis', 'Kelompok')->where('status', 'Surat Disetujui')->count();
+        $suratKeg = SuratTugas::where('jenis', 'Kegiatan')->where('status', 'Surat Disetujui')->count();
+        return view('Mahasiswa\homeMhs', compact('suratInd', 'suratKel', 'suratKeg'));
+    }
 }
